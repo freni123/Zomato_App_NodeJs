@@ -1,12 +1,12 @@
 /* ------------------------------- USER MODEL ------------------------------- */
 module.exports.User = require("./user.model");
 module.exports.Admin = require("./admin.model");
+module.exports.Token =require("./token.model");
 /* -------------------------------------------------------------------------- */
 /*                              RESTAURANT MODEL                              */
 /* -------------------------------------------------------------------------- */
 module.exports.Restaurant = require("./restaurant.model");
 module.exports.Owner = require("./owner.model");
-module.exports.Category = require("./category.model");
 module.exports.menuItem = require("./menu_item.model");
 module.exports.Order = require("./order.model");
 module.exports.foodGallery = require("./food_gallery.model");

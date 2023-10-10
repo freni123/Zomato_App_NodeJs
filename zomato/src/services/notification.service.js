@@ -6,7 +6,7 @@ const createNotification = async (reqBody) => {
 };
 /* ------------------------------ GET NOTIFICATION LIST ----------------------------- */
 const getNotificationList = async (req, res) => {
-  return Notification.find();
+  return Notification.find().populate("user").populate("restaurant");
 };
 /* ------------------------- GET NOTIFICATION RECORDS BY ID ------------------------- */
 const getNotificationById = async (notificationId) => {

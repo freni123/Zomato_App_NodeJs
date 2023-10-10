@@ -19,10 +19,6 @@ const restaurantSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: "owner",
     },
-    city: {
-      type: mongoose.Types.ObjectId,
-      ref: "city",
-    },
     ratings: {
       type: String,
     },

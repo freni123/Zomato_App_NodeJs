@@ -6,7 +6,7 @@ const createRating = async (reqBody) => {
 };
 /* ------------------------------ GET RATING LIST ----------------------------- */
 const getRatingList = async (req, res) => {
-  return Rating.find();
+  return Rating.find().populate("restaurant");
 };
 /* ------------------------- GET RATING RECORDS BY ID ------------------------- */
 const getRatingById = async (ratingId) => {

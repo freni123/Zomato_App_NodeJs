@@ -3,8 +3,7 @@ const http = require("http");
 const bodyParser = require("body-parser");
 const { connectDB } = require("./db/dbConnection");
 const routes = require("./routes/v1");
-const dotenv = require("dotenv");
-dotenv.config();
+const config = require('./config/config');
 
 /* -------------------------- express using server -------------------------- */
 const app = express();
@@ -30,6 +29,6 @@ connectDB();
 /* ------------------------ create server using http ------------------------ */
 const server = http.createServer(app);
 
-server.listen(process.env.PORT, () => {
+server.listen(config.port, () => {
   console.log("server listening");
 });

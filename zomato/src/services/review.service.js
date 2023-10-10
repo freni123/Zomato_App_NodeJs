@@ -6,7 +6,7 @@ const createReview = async (reqBody) => {
 };
 /* ------------------------------ GET REVIEW LIST ----------------------------- */
 const getReviewList = async (req, res) => {
-  return Review.find();
+  return Review.find().populate("user").populate("restaurant");
 };
 /* ------------------------- GET REVIEW RECORDS BY ID ------------------------- */
 const getReviewById = async (reviewId) => {

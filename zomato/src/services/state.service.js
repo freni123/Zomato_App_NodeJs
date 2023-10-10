@@ -6,7 +6,7 @@ const createState = async (reqBody) => {
 };
 /* ------------------------------ GET STATE LIST ----------------------------- */
 const getStateList = async (req, res) => {
-  return State.find();
+  return State.find().populate("country");
 };
 /* ------------------------- GET STATE RECORDS BY ID ------------------------- */
 const getStateById = async (stateId) => {

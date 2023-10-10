@@ -1,30 +1,57 @@
 const { User } = require("../models");
 
-/* ------------------------------- CREATE USER ------------------------------ */
+/* ------------------------------- create user ------------------------------ */
 const createUser = async (reqBody) => {
   return User.create(reqBody);
 };
-/* ------------------------------ GET USER LIST ----------------------------- */
+
+/* --------------------------- Find user by email --------------------------- */
+const findUserByEmail = async (email) => {
+  return await User.findOne(email);
+};
+
+/* -------------------------- Find user and update -------------------------- */
+const findUserAndUpdate = async (_id, token) => {
+  return await User.findByIdAndUpdate(
+    { _id },
+    {
+      $set: { token },
+    },
+    { new: true }
+  );
+};
+
+/* ------------------------------ Get all user ------------------------------ */
+const getAllUser = async (role) => {
+  return await User.find(role);
+};
+
+/* ------------------------------ get user list ----------------------------- */
 const getUserList = async (req, res) => {
   return User.find();
 };
-/* ------------------------- GET USER RECORDS BY ID ------------------------- */
+/* ------------------------- get user details by id ------------------------- */
 const getUserById = async (userId) => {
   return User.findById(userId);
 };
-/* --------------------------- USER RECORDS UPDATE BY ID --------------------------- */
-const updateRecord = async (userId, updateBody) => {
+
+/* ------------------------------- update user ------------------------------ */
+const updateUser = async (userId, updateBody) => {
   return User.findByIdAndUpdate(userId, { $set: updateBody });
 };
-/* ------------------------------- DELETE USER ------------------------------ */
-const deleteRecord = async (userId) => {
+
+/* ------------------------------- delete user ------------------------------ */
+const deleteUser = async (userId) => {
   return User.findByIdAndDelete(userId);
 };
 
 module.exports = {
   createUser,
-  getUserById,
   getUserList,
-  updateRecord,
-  deleteRecord,
+  getUserById,
+  updateUser,
+  deleteUser,
+  findUserByEmail,
+  findUserAndUpdate,
+  getAllUser,
 };

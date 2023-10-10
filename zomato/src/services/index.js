@@ -11,6 +11,7 @@ module.exports.menuItemService = require("./menu_item.service");
 module.exports.countryService = require("./country.service");
 module.exports.cityService = require("./city.service");
 module.exports.adminService = require("./admin.service");
+module.exports.emailService = require("./email.service");
 
 
 

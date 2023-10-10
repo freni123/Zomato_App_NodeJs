@@ -6,7 +6,7 @@ const createAdmin = async (reqBody) => {
 };
 /* ------------------------------ GET ADMIN LIST ----------------------------- */
 const getAdminList = async (req, res) => {
-  return Admin.find();
+  return Admin.find().populate("user");
 };
 /* ------------------------- GET ADMIN RECORDS BY ID ------------------------- */
 const getAdminById = async (adminId) => {

@@ -6,7 +6,7 @@ const createOwner = async (reqBody) => {
 };
 /* ------------------------------ GET OWNER LIST ----------------------------- */
 const getOwnerList = async (req, res) => {
-  return Owner.find();
+  return Owner.find().populate("restaurant_name","res_name");
 };
 /* ------------------------- GET OWNER RECORDS BY ID ------------------------- */
 const getOwnerById = async (ownerId) => {

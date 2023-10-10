@@ -6,7 +6,7 @@ const createCity = async (reqBody) => {
 };
 /* ------------------------------ GET CITY LIST ----------------------------- */
 const getCityList = async (req, res) => {
-  return City.find();
+  return City.find().populate("state").populate("country");
 };
 /* ------------------------- GET CITY RECORDS BY ID ------------------------- */
 const getCityById = async (cityId) => {

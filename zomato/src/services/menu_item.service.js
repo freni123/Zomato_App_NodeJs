@@ -6,7 +6,7 @@ const createmenuItem = async (reqBody) => {
 };
 /* ------------------------------ GET MENU-ITEM LIST ----------------------------- */
 const getmenuItemList = async (req, res) => {
-  return menuItem.find();
+  return menuItem.find().populate("restaurant");
 };
 /* ------------------------- GET MENU-ITEM RECORDS BY ID ------------------------- */
 const getmenuItemById = async (menuId) => {

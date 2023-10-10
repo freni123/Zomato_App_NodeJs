@@ -6,7 +6,7 @@ const createPayement = async (reqBody) => {
 };
 /* ------------------------------ GET PAYMENT LIST ----------------------------- */
 const getPayementList = async (req, res) => {
-  return Payement.find();
+  return Payement.find().populate("user").populate("order");
 };
 /* ------------------------- GET PAYMENT RECORDS BY ID ------------------------- */
 const getPayementById = async (payementId) => {
