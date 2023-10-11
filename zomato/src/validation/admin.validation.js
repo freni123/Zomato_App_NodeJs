@@ -2,7 +2,7 @@ const Joi = require("joi");
 /* ------------------------- CREATE ADMIN VALIDATION ------------------------- */
 const createAdmin = {
   body: Joi.object().keys({
-    user: Joi.string().required().trim(),
+    user: Joi.string().allow().trim(),
     email: Joi.string().required().trim(),
     password: Joi.string().required().trim(),
   }),

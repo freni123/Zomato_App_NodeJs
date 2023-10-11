@@ -30,7 +30,7 @@ const auth = (role) => async (req, res, next) => {
 
     req.user = user;
     next();
-
+/* ------------------------------ verify token ------------------------------ */
     jwt.verify(token, jwtSecrectKey, (err, decoded) => {
       console.log(role, 'role');
       if (err || !role.find((ele) => ele === decoded.role)) {

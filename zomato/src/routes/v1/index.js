@@ -10,6 +10,7 @@ const ownerRoute = require("./owner.route");
 const menuRoute = require("./menu_item.route");
 const orderRoute = require("./order.route");
 const ratingRoute = require("./rating.route");
+const galleryRoute = require("./food_gallery.route");
 
 /* ----------------------------- LOCATION ROUTE ----------------------------- */
 const stateRoute = require("./state.route");
@@ -36,6 +37,7 @@ router.use("/owner", ownerRoute);
 router.use("/menu", menuRoute);
 router.use("/order", orderRoute);
 router.use("/rating", ratingRoute);
+router.use("/gallery", galleryRoute);
 
 /* -------------------------------- LOCATION -------------------------------- */
 router.use("/state", stateRoute);

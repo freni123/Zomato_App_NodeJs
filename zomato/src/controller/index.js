@@ -9,6 +9,7 @@ module.exports.ownerController = require("./owner.controller");
 module.exports.menuItemController = require("./menu_item.controller");
 module.exports.orderController = require("./order.controller");
 module.exports.ratingController = require("./rating.controller");
+module.exports.galleryController = require("./food_gallery.controller");
 
 /* --------------------------- LOCATION CONTROLLER -------------------------- */
 module.exports.cityController = require("./city.controller");
@@ -21,12 +22,3 @@ module.exports.reviewController = require("./review.controller");
 /* ----------------------------- CHAT CONTROLLER ---------------------------- */
 module.exports.paymentController = require("./payment.controller");
 module.exports.notificationController = require("./notification.controller");
-
-
-
-
-
-
-
-
-

@@ -7,7 +7,7 @@ const foodGallerySchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    food_img: {
+    food_image: {
       type: String,
     },
     food_desc: {
@@ -30,6 +30,13 @@ const foodGallerySchema = new mongoose.Schema(
   {
     timestamps: true,
     versionKey: false,
+    toJSON: {
+      transform: function (doc, data) {
+        if (data?. food_image) {
+          data. food_image= `${config.base_url}food_gallery/${data. food_image}`;
+        }
+      },
+    },
   }
 );
 const foodGallery = mongoose.model("foodGallery", foodGallerySchema);

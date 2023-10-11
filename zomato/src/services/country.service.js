@@ -6,7 +6,7 @@ const createCountry = async (reqBody) => {
 };
 /* ------------------------------ GET COUNTRY LIST ----------------------------- */
 const getCountryList = async (req, res) => {
-  return Country.find();
+  return Country.find({ $or: [{ is_active: true }] });
 };
 /* ------------------------- GET COUNTRY RECORDS BY ID ------------------------- */
 const getCountryById = async (countryId) => {

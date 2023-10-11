@@ -1,6 +1,7 @@
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
+const path = require("path");
 const { connectDB } = require("./db/dbConnection");
 const routes = require("./routes/v1");
 const config = require('./config/config');
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* ------------------------ allow json data from body ----------------------- */
 app.use(bodyParser.json());
 
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname,`./public`)));
 
 /* ---------------------- Routes Namespace upload files --------------------- */
 app.use("/v1", routes);
