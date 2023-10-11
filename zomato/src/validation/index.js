@@ -1,6 +1,7 @@
 /* ----------------------------- USER VALIDATION ---------------------------- */
 module.exports.userValidation = require("./user.validation");
 module.exports.adminValidation = require("./admin.validation");
+module.exports.tokenValidation = require("./token.validation");
 
 /* -------------------------- RESTAURANT VALIDATION ------------------------- */
 module.exports.restaurantValidation = require("./restaurant.validation");

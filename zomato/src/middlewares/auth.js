@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { User } = require("../models");
 const config = require("../config/config");
-const jwtSecrectKey = "f2r1e4V3G6h5a6s8i8y9a";
+// const jwtSecrectKey = "f2r1e4V3G6h5a6s8i8y9a";
 
 const auth = (role) => async (req, res, next) => {
   try {

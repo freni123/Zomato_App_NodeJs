@@ -6,7 +6,8 @@ const createGallery = async (reqBody) => {
 };
 /* -------------------------- GET FOOD GALLERY LIST ------------------------- */
 const getGalleryList = async (req, res) => {
-  return foodGallery.find();
+  return foodGallery.find().populate("restaurant")
+                           .populate("menuItem","item_name");
 };
 /* --------------------- GET FOOD GALLERY DETALIS BY ID --------------------- */
 const getGalleryById = async (galleryId) => {

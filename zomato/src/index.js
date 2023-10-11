@@ -1,10 +1,11 @@
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const path = require("path");
 const { connectDB } = require("./db/dbConnection");
 const routes = require("./routes/v1");
-const config = require('./config/config');
+const config = require("./config/config");
 
 /* -------------------------- express using server -------------------------- */
 const app = express();
@@ -15,7 +16,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* ------------------------ allow json data from body ----------------------- */
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname,`./public`)));
+/* ------------------------------- enable cors ------------------------------ */
+app.use(cors());
+app.options("*", cors());
+
+app.use(express.static(path.join(__dirname, `./public`)));
 
 /* ---------------------- Routes Namespace upload files --------------------- */
 app.use("/v1", routes);

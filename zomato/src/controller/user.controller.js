@@ -4,7 +4,7 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 const moment = require("moment");
 const jwt = require("jsonwebtoken");
-const config = "../config/";
+const config = require("../config/config");
 /* ------------------------------ USER REGISTER ----------------------------- */
 const register = async (req, res) => {
   // validation
@@ -26,7 +26,11 @@ const register = async (req, res) => {
     token,
   };
   const data = await userService.createUser(filter);
-  res.status(200).json({ data });
+  res.status(200).json({
+    success: true,
+    message: "user register successfully!",
+    data: { data },
+  });
 };
 /* ------------------------------- USER LOGIN ------------------------------- */
 const login = async (req, res) => {
@@ -77,8 +81,31 @@ const getAllUser = async (req, res) => {
 const createUser = async (req, res) => {
   try {
     const reqBody = req.body;
+    const userExists = await userService.getUserByEmail(reqBody.email);
+    // if (userExists) {
+    //   throw new Error("User already created by this email!");
+    // }
+    ejs.renderFile(
+      path.join(__dirname, "../views/otp-template.ejs"),
+      {
+        email: reqBody.email,
+        otp: ("0".repeat(4) + Math.floor(Math.random() * 10 ** 4)).slice(-4),
+        first_name: reqBody.first_name,
+        last_name: reqBody.last_name,
+      },
+      async (err, data) => {
+        if (err) {
+          let userCreated = await userService.getUserByEmail(reqBody.email);
+          if (userCreated) {
+            await userService.deleteUserByEmail(reqBody.email);
+          }
+          throw new Error("Something went wrong, please try again.");
+        } else {
+          emailService.sendMail(reqBody.email, data, "Verify Email");
+        }
+      }
+    );
     const user = await userService.createUser(reqBody);
-
     if (!user) {
       throw new Error("User not found !");
     }

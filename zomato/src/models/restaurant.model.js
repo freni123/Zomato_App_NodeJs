@@ -19,14 +19,20 @@ const restaurantSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: "owner",
     },
+    city:{
+      type:mongoose.Types.ObjectId,
+      ref:"city",
+    },
     ratings: {
       type: String,
     },
     opening_time: {
       type: Date,
+      default:new Date().setHours(9,0,0),
     },
     closeing_time: {
       type: Date,
+      default:new Date().setHours(10,0,0),
     },
     is_active: {
       type: Boolean,

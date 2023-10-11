@@ -44,6 +44,14 @@ const updateUser = async (userId, updateBody) => {
 const deleteUser = async (userId) => {
   return User.findByIdAndDelete(userId);
 };
+/* ------------------------------- user email ------------------------------- */
+const getUserByEmail = async (email) => {
+  return User.findOne({ email });
+};
+/* ---------------------------- delete user email --------------------------- */
+const deleteUserByEmail = async (email) => {
+  return User.findOneAndDelete({ email: email });
+};
 
 module.exports = {
   createUser,
@@ -54,4 +62,6 @@ module.exports = {
   findUserByEmail,
   findUserAndUpdate,
   getAllUser,
+  getUserByEmail,
+  deleteUserByEmail,
 };

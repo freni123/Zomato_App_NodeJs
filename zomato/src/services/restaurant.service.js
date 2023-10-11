@@ -6,7 +6,8 @@ const createRestaurant = async (reqBody) => {
 };
 /* ------------------------------ GET RESTAURANT LIST ----------------------------- */
 const getRestaurantList = async (req, res) => {
-  return Restaurant.find().populate("owner_name");
+  return Restaurant.find().populate("owner_name")
+                          .populate("city","city_name");
 };
 /* ------------------------- GET RESTAURANT RECORDS BY ID ------------------------- */
 const getRestaurantById = async (restaurantId) => {

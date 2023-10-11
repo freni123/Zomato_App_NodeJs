@@ -10,14 +10,14 @@ let transport = nodemailer.createTransport({
   },
 });
 
-/* -------------------------------- SEND MAIL ------------------------------- */
-const sendMail = async (to, subject, text) => {
+/* -------------------------------- Send mail ------------------------------- */
+const sendMail = async (to, data, subject) => {
   try {
     return transport.sendMail({
       from: config.email.from,
       to,
       subject,
-      text,
+      html: data,
     });
   } catch (error) {
     return false;

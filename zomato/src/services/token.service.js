@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { token } = require("../models");
+const { Token } = require("../models");
 const config = require("../config/config");
 
 /* ------------------------------ create tokem ------------------------------ */
@@ -12,7 +12,7 @@ const createToken = async (reqBody) => {
 
 /* ------------------------------- save token ------------------------------- */
 const saveToken = async (reqBody) => {
-  return token.findOneAndUpdate(
+  return Token.findOneAndUpdate(
     {
       user: reqBody.user,
     },

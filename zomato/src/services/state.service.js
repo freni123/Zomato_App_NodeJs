@@ -6,7 +6,7 @@ const createState = async (reqBody) => {
 };
 /* ------------------------------ GET STATE LIST ----------------------------- */
 const getStateList = async (req, res) => {
-  return State.find().populate("country");
+  return State.find().populate("country_name");
 };
 /* ------------------------- GET STATE RECORDS BY ID ------------------------- */
 const getStateById = async (stateId) => {
@@ -22,9 +22,9 @@ const deleteRecord = async (stateId) => {
 };
 
 module.exports = {
-    createState,
-    getStateList,
-    getStateById,
+  createState,
+  getStateList,
+  getStateById,
   updateRecord,
   deleteRecord,
 };
